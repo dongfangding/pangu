@@ -15,17 +15,15 @@
     <packaging>pom</packaging>
 
     <!--
- spring-cloud-alibaba与spring-cloud和spring-boot的对应版本关系
- 2021.x 分支对应的是 Spring Cloud 2022 与 Spring Boot 2.6.x，最低支持 JDK 1.8。
- 2020.0 分支对应的是 Spring Cloud 2020 与 Spring Boot 2.4.x，最低支持 JDK 1.8。
- 2.2.x 分支对应的是 Spring Cloud Hoxton 与 Spring Boot 2.2.x，最低支持 JDK 1.8。
- 推荐版本
-spring-cloud                spring-cloud-alibaba    spring-boot
-Spring Cloud 2021.0.1	    2021.0.1.0	            2.6.3
-Spring Cloud Hoxton.SR12	2.2.7.RELEASE	        2.3.12.RELEASE
-Spring Cloud 2020.0.0	    2021.1	                2.4.2
-Spring Cloud Hoxton.SR9	    2.2.6.RELEASE	        2.3.2.RELEASE
- -->
+    spring-boot spring-cloud spring-cloud-alibaba 版本依赖关系
+    https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
+    推荐使用
+    spring-cloud-alibaba    spring-cloud                spring-boot
+    2021.0.1.0              Spring Cloud 2021.0.1       2.6.3
+    2.2.7.RELEASE           Spring Cloud Hoxton.SR12    2.3.12.RELEASE
+    2021.1                  Spring Cloud 2020.0.1       2.4.2
+    2.2.6.RELEASE           Spring Cloud Hoxton.SR9     2.3.2.RELEASE
+    -->
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -68,6 +66,10 @@ Spring Cloud Hoxton.SR9	    2.2.6.RELEASE	        2.3.2.RELEASE
             <url>http://106.15.10.135:8800/repository/nexus_snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <modules>
+        <module>pangu-common</module>
+    </modules>
 
     <repositories>
         <repository>
