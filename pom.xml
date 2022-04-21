@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.ddf.common</groupId>
         <artifactId>ddf-common</artifactId>
-        <version>1.0.0.RELEASE</version>
+        <version>1.0.1-SNAPSHOT</version>
         <relativePath /> <!-- 设置从远程仓库中获取pom，而不是本地，否则这里会警告 -->
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -23,6 +23,13 @@
     2.2.7.RELEASE           Spring Cloud Hoxton.SR12    2.3.12.RELEASE
     2021.1                  Spring Cloud 2020.0.1       2.4.2
     2.2.6.RELEASE           Spring Cloud Hoxton.SR9     2.3.2.RELEASE
+
+
+    同时要注意的是安装的spring-cloud-alibaba的组件版本要对应上，关系如下，否则不保证可用
+    Spring Cloud Alibaba Version	Sentinel Version	Nacos Version	RocketMQ Version	Dubbo Version	Seata Version
+    2021.0.1.0*                     1.8.3               1.4.2           4.9.2               2.7.15          1.4.2
+    2.2.7.RELEASE                   1.8.1               2.0.3           4.6.1               2.7.13          1.3.0
+    2.2.6.RELEASE                   1.8.1               1.4.2           4.4.0               2.7.8           1.3.0
     -->
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -48,12 +55,6 @@
                 <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>com.ddf.common</groupId>
-                <artifactId>ddf-common-core</artifactId>
-                <version>${project.parent.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
