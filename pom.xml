@@ -2,18 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <!-- 引入自己写的通用包，基于spring-boot, 地址在https://github.com/dongfangding/ddf-common -->
-<!--    <parent>-->
-<!--        <groupId>com.ddf.common</groupId>-->
-<!--        <artifactId>ddf-common</artifactId>-->
-<!--        <version>1.0.2-2611-SNAPSHOT</version>-->
-<!--        <relativePath /> &lt;!&ndash; 设置从远程仓库中获取pom，而不是本地，否则这里会警告 &ndash;&gt;-->
-<!--    </parent>-->
-
     <groupId>com.ddf.cloud.common</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>pangu</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-2021.0.5-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <!--
@@ -21,18 +13,18 @@
     https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
     推荐使用
     spring-cloud-alibaba    spring-cloud                spring-boot
-    2021.0.4.0*             Spring Cloud 2021.0.4       2.6.11
+    2021.0.5.0*             Spring Cloud 2021.0.5       2.6.13
 
     同时要注意的是安装的spring-cloud-alibaba的组件版本要对应上，关系如下，否则不保证可用
     Spring Cloud Alibaba Version	Sentinel Version	Nacos Version	RocketMQ Version	Dubbo Version	Seata Version
-    2021.0.4.0                      1.8.5               2.0.4           4.9.4                 ~              1.5.2
+    2021.0.5.0                      1.8.6               2.2.0           4.9.4                 ~              1.6.1
     -->
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <spring.cloud.version>2021.0.4</spring.cloud.version>
-        <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
-        <ddf-common.version>1.0.2-2611-SNAPSHOT</ddf-common.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.5.0</spring.cloud.alibaba.version>
+        <ddf-common.version>1.0.2-2613-SNAPSHOT</ddf-common.version>
     </properties>
 
     <!--维护依赖-->
@@ -64,20 +56,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <!-- 注意这里的id要和settings.xml中配置servers节点下的server里的id一致，因为要找到对应的账号信息 -->
-            <id>nexus_release</id>
-            <name>Release Repository of nexus_release</name>
-            <url>http://106.15.10.135:8800/repository/nexus_release/</url>
-        </repository>
-
-        <snapshotRepository>
-            <id>nexus_snapshot</id>
-            <name>Snapshot Repository of nexus_snapshot</name>
-            <url>http://106.15.10.135:8800/repository/nexus_snapshot/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <modules>
         <module>pangu-common-api</module>
@@ -85,20 +63,6 @@
     </modules>
 
     <repositories>
-        <repository>
-            <id>nexus-public</id>
-            <!-- 这里要和settings里的mirrors节点下的某一个mirror的url对应起来， 一般在settings.xml中配置的这个地址，都是在nexus中的一个group地址，
-             然后将自己私服的release库地址和snapshot库地址都添加到这个组中， 即上面<distributionManagement>下<repository>和<snapshotRepository>-->
-            <url>http://106.15.10.135:8800/repository/nexus_public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </repository>
         <repository>
             <id>spring-milestones</id>
             <url>https://repo.spring.io/libs-milestone</url>
@@ -121,18 +85,6 @@
     </repositories>
 
     <pluginRepositories>
-        <pluginRepository>
-            <id>nexus-public</id>
-            <url>http://106.15.10.135:8800/repository/nexus_public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-                <checksumPolicy>fail</checksumPolicy>
-            </snapshots>
-        </pluginRepository>
         <pluginRepository>
             <id>spring-milestones</id>
             <url>https://repo.spring.io/libs-milestone</url>
