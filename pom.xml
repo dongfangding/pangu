@@ -60,6 +60,8 @@
     <modules>
         <module>pangu-common-api</module>
         <module>pangu-common-core</module>
+        <module>pangu-common-authentication</module>
+        <module>pangu-common-gateway</module>
     </modules>
 
     <repositories>
