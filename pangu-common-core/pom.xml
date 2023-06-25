@@ -16,10 +16,16 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <disruptor.version>3.4.4</disruptor.version>
+        <pangu-common-api.version>1.0.0-2021.0.5-SNAPSHOT</pangu-common-api.version>
         <ddf-common-mvc.version>1.0.2-2613-SNAPSHOT</ddf-common-mvc.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.ddf.cloud.common</groupId>
+            <artifactId>pangu-common-api</artifactId>
+            <version>${pangu-common-api.version}</version>
+        </dependency>
         <dependency>
             <groupId>com.ddf.common</groupId>
             <artifactId>ddf-common-api</artifactId>
